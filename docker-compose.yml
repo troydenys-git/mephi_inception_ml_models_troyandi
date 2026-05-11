@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+
+    container_name: mephi_credit_card_app
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - .:/app
+
+    restart: unless-stopped
+
+    command: python -m app.api

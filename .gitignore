@@ -1,0 +1,12 @@
+# Виртуальное окружение
+venv/
+env/
+credit_card_venv/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+
+# Логи и Docker
+*.log
+.dockerignore
