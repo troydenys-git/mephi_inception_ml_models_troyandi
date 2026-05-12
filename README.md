@@ -44,60 +44,59 @@
 ## 1. Запуск проекта локально
 ### 1.1. Скачать репозиторий
 
-git clone https://github.com/troydenys-git/mephi_inception_ML_models_TroyanDI.git
+```git clone https://github.com/troydenys-git/mephi_inception_ML_models_TroyanDI.git
+```
 
 ### 1.2. Установить зависимости 
-
+```
 pip install -r requirements.txt
-
+```
 ### 1.3. Запустить приложение
-
+```
 python -m app.api
-
+```
 ### 1.4. Запустить тест в соседнем терминале
-
+```
 python tests/test_api.py
-
+```
 ## 2. Запуск проекта через Docker.
 ### 2.1. Предварительно выполнить шаги 1.1-1.2
 
 ### 2.2. Создать Docker-образ
-
+```
 docker build -t mephi_credit_card_app_troyandi -f docker/Dockerfile .
-
+```
 ### 2.3. Запустить тест в соседнем терминале
-
+```
 python tests/test_api.py
-
+```
 # Примеры запросов к API (curl-команды).
 
 Команда для проверки эндпоинта /health. Эндпоинт /predict проверяется через тестовый файл.
-
+```
  curl http://localhost:5000/health
-
+```
 # Описание формата запросов и ответов.
 
 Запрос:
 
-GET /health
-
-нет тела запроса
+- `GET /health` - нет тела запроса
 
 Ответ:
-
+```
 {
   "status": "healthy"
 }
+```
 
-
-POST /predict
+- `POST /predict` 
 
 Запрос
 
 Сервис принимает случайно выбранный сэмпл в формате JSON с признаками клиента из тестовой части датасета UCI Credit Card Default.
 
 Формат входа соответствует обучающему набору X (все признаки, кроме таргета default.payment.next.month).
-
+```
 {
   "LIMIT_BAL": 20000,
 
@@ -117,17 +116,17 @@ POST /predict
 
   ...
 }
-
+```
 Особенности:
 
-все поля обязательны,
+- все поля обязательны,
 
-порядок не важен (он фиксируется через features.json),
+- порядок не важен (он фиксируется через features.json),
 
-типы: int / float
+- типы: int / float
 
 Ответ 
-
+```
 {
   "prediction": 0,
 
@@ -137,15 +136,16 @@ POST /predict
 
   "true_label": 0
 }
-
+```
 В ответе выводятся: предсказание модели, вероятность класса, версия модели, истинное значение класса.
 
 # Ссылка на Docker-образ в Docker Hub.
-
+```
 https://hub.docker.com/repository/docker/troydenys/mephi_credit_card_app_troyandi/general
-
+```
+```
 docker pull troydenys/my-mephi_credit_card_app_troyandi:latest
-
+```
 # Скриншоты запуска сервиса и тестовых команд
 ![My Graph](data/artifacts/1.png)
 
