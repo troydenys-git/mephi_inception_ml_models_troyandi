@@ -49,13 +49,16 @@ git clone https://github.com/troydenys-git/mephi_inception_ML_models_TroyanDI.gi
 
 ### 3.1.2. Установить зависимости 
 ```
+cd mephi_inception_ML_models_TroyanDI
+python3 -m venv .session_test_venv
+source .session_test_venv/bin/activate
 pip install -r requirements.txt
 ```
 ### 3.1.3. Запустить приложение
 ```
 python -m app.api
 ```
-### 3.1.4. Запустить тест в соседнем терминале
+### 3.1.4. Запустить тест в соседнем терминале из директории проекта
 ```
 python tests/test_api.py
 ```
@@ -68,7 +71,9 @@ docker build -t mephi_credit_card_app_troyandi -f docker/Dockerfile .
 ```
 
 ### 3.2.3. Запустить Docker-контейнер
-
+``` 
+docker run -p 5000:5000 mephi_credit_card_app_troyandi
+```
 ### 3.2.4. Запустить тест в соседнем терминале
 ```
 python tests/test_api.py
@@ -155,10 +160,10 @@ docker-compose down
 
 # 6. Ссылка на Docker-образ в Docker Hub.
 ```
-https://hub.docker.com/repository/docker/troydenys/mephi_credit_card_app_troyandi/general
+https://hub.docker.com/r/troydenys/mephi_credit_card_app_troyandi/tags
 ```
 ```
-docker pull troydenys/my-mephi_credit_card_app_troyandi:latest
+docker pull troydenys/mephi_credit_card_app_troyandi:latest
 ```
 # Скриншоты запуска сервиса и тестовых команд
 ![My Graph](data/artifacts/1.png)
