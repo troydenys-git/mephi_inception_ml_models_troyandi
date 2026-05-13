@@ -53,9 +53,7 @@ F1-score является гармоническим средним между P
 
 Формула метрики:
 
-$$
-F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
-$$
+F1 = 2 · (Precision · Recall) / (Precision + Recall)
 	​
 
 
@@ -74,10 +72,7 @@ $$
 
 Recall показывает, какую долю реальных дефолтов модель смогла обнаружить:
 
-$$
-Recall = \frac{TP}{TP + FN}
-$$
-	​
+Recall = TP / (TP + FN)
 
 
 Где:
